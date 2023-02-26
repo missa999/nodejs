@@ -16,7 +16,7 @@ mongoose.connect(process.env.DATABASE,{
 useNewUrlParser: true, 
 useUnifiedTopology: true
  }) 
- .then(() => {console.log("Connexion à la base de données réussie"); 
+ .then(() => {console.log("Connexion de la base de données réussie"); 
 }).catch(err => { 
 console.log('Impossible de se connecter à la base de données', err); 
 process.exit(); 
