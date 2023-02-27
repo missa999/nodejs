@@ -9,6 +9,12 @@ const app = express();
 app.use(cors()) 
 //BodyParser Middleware
 app.use(express.json()); 
+const categorieRouter =require("./routes/categorie.route") 
+app.use('/api/categories', categorieRouter);
+const scategorieRouter =require("./routes/scategorie.route") 
+app.use('/api/scategories', scategorieRouter); 
+const articleRouter =require("./routes/article.route") 
+app.use('/api/articles', articleRouter); 
 mongoose.set("strictQuery", false); 
 
 // Connexion à la base données
@@ -26,10 +32,5 @@ res.send("bonjour");
 }); 
 app.listen(process.env.PORT, () => { 
 console.log(`Server is listening on port ${process.env.PORT}`); }); 
-const categorieRouter =require("./routes/categorie.route") 
-app.use('/api/categories', categorieRouter);
-const scategorieRouter =require("./routes/scategorie.route") 
-app.use('/api/scategories', scategorieRouter); 
-const articleRouter =require("./routes/article.route") 
-app.use('/api/articles', articleRouter); 
+
 module.exports = app; 
